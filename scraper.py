@@ -30,11 +30,11 @@ for city in Cities:
     s2 = bs.BeautifulSoup(content1,'lxml')
     table = s2.find('table')
     '''
-    for r in table:
-            td=r.find_all('td')
-            r_data = [i.text for i in td]
-            print(r_data)
-            print('\n')
+    #for r in table:
+            #td=r.find_all('td')
+            #r_data = [i.text for i in td]
+            #print(r_data)
+            #print('\n')
             '''
     rows = table.find_all('tr')
     cols = [__.text.replace('\n','') for __ in rows[0].find_all('th')]
@@ -47,9 +47,9 @@ for city in Cities:
         r_data = [i.text for i in td]
         df = df.append(pd.Series(r_data,index=cols), ignore_index=True)
         '''
-        with open('output.csv') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerows(r_data)
+        #with open('output.csv') as csvfile:
+            #writer = csv.writer(csvfile)
+            #writer.writerows(r_data)
             '''
         
         df.to_csv(''+ r_data[1] + '.csv', index = False)
